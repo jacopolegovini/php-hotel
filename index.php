@@ -56,7 +56,7 @@ if (isset($_GET["parking"])) {
 if (isset($_GET["vote1"])) {
     $voteHotels = [];
     foreach ($hotels as $hotel) {
-        if ($hotel['vote'] === 1) {
+        if ($hotel['vote'] >= 1) {
             array_push($voteHotels, $hotel);
         }
     }
@@ -64,7 +64,7 @@ if (isset($_GET["vote1"])) {
 } elseif (isset($_GET["vote2"])) {
     $voteHotels = [];
     foreach ($hotels as $hotel) {
-        if ($hotel['vote'] === 2) {
+        if ($hotel['vote'] >= 2) {
             array_push($voteHotels, $hotel);
         }
     }
@@ -72,7 +72,7 @@ if (isset($_GET["vote1"])) {
 } elseif (isset($_GET["vote3"])) {
     $voteHotels = [];
     foreach ($hotels as $hotel) {
-        if ($hotel['vote'] === 3) {
+        if ($hotel['vote'] >= 3) {
             array_push($voteHotels, $hotel);
         }
     }
@@ -80,7 +80,7 @@ if (isset($_GET["vote1"])) {
 } elseif (isset($_GET["vote4"])) {
     $voteHotels = [];
     foreach ($hotels as $hotel) {
-        if ($hotel['vote'] === 4) {
+        if ($hotel['vote'] >= 4) {
             array_push($voteHotels, $hotel);
         }
     }
@@ -88,7 +88,7 @@ if (isset($_GET["vote1"])) {
 } elseif (isset($_GET["vote5"])) {
     $voteHotels = [];
     foreach ($hotels as $hotel) {
-        if ($hotel['vote'] === 5) {
+        if ($hotel['vote'] >= 5) {
             array_push($voteHotels, $hotel);
         }
     }
