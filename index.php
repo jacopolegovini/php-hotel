@@ -38,34 +38,15 @@ $hotels = [
 
 ];
 
-for ($i = 0; $i < count($hotels); $i++) {
-    $hotel = $hotels[$i];
-
-    echo ($hotel['parking']);
-    // if ($hotel['parking'] === true) {
-    //     echo 'true';
-    //     array_push($hotels, $hotel);
-    // } else {
-    //     echo 'false';
-    //     $hotel = [];
-    //     array_push($hotels, $hotel);
-    // }
-}
-
-
 // Valuta se l'utente ha interagito col radio button
 if (isset($_GET["parking"])) {
-    $hotels = [];
+    $filteredHotels = [];
     foreach ($hotels as $hotel) {
-        if ($hotel['parking'] === false) {
-            echo 'false';
-            array_push($hotels, $hotel);
-        } else {
-            // array_splice($hotel, 0, 5);
-            echo 'true';
+        if ($hotel['parking'] === true) {
+            array_push($filteredHotels, $hotel);
         }
     }
-    var_dump($hotels);
+    $hotels = $filteredHotels;
 } elseif (isset($_GET["parking"])) {
     $hotels;
 } else {
