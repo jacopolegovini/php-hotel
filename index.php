@@ -37,6 +37,16 @@ $hotels = [
     ],
 
 ];
+
+// Valuta se l'utente ha interagito col radio button
+if (isset($_GET["parking"])) {
+    echo 'parcheggio';
+} elseif (isset($_GET["parking"])) {
+    echo 'no parcheggio';
+} else {
+    echo '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -50,23 +60,22 @@ $hotels = [
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <main>
-        <ul>
-            <?php foreach ($hotels as $hotel) { ?>
-            <li>
-                <?php foreach ($hotel as $dataHotel) { ?>
-                <ul>
-                    <li>
-                        <?= $dataHotel; ?>
-                    </li>
-                </ul>
-                <?php } ?>
-            </li>
-            <?php } ?>
-        </ul>
+        <h1>Scegli il tuo hotel per le vacanze</h1>
+        <form action="" method="GET">
+            <label for="parking" class="form-check-label">Ti serve anche il parcheggio?</label>
+            <input type="radio" name="noParking" id="noParking" class="form-check-input">
+            <label for="noParking" checked="checked">NO</label>
+            <input type="radio" name="parking" id="parking" class="form-check-input">
+            <label for="parking">SI</label>
+            <button>Filtra</button>
+        </form>
 
         <table class="table">
             <thead>
@@ -80,13 +89,13 @@ $hotels = [
             </thead>
             <tbody>
                 <?php for ($i = 0; $i < count($hotels); $i++) { ?>
-                <tr>
-                    <?php foreach ($hotels[$i] as $hotelData) { ?>
-                    <td>
-                        <?= $hotelData ?>
-                    </td>
-                    <?php } ?>
-                </tr>
+                    <tr>
+                        <?php foreach ($hotels[$i] as $hotelData) { ?>
+                            <td>
+                                <?= $hotelData ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
                 <?php } ?>
             </tbody>
         </table>
