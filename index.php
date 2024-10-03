@@ -47,8 +47,31 @@ if (isset($_GET["parking"])) {
         }
     }
     $hotels = $filteredHotels;
-} elseif (isset($_GET["parking"])) {
+} elseif (isset($_GET["noParking"])) {
     $hotels;
+} else {
+    $hotels;
+}
+
+// Valuta se l'utente ha interagito con la selected
+if (isset($_GET["vote"])) {
+    $parkingHotels = [];
+
+    $vote = $_GET["vote"];
+
+    foreach ($hotels as $hotel) {
+        if ($hotel['vote'] === 1) {
+            array_push($parkingHotels, $hotel);
+        } elseif ($hotel['vote'] === 2) {
+            array_push($parkingHotels, $hotel);
+        } elseif ($hotel['vote'] === 3) {
+            array_push($parkingHotels, $hotel);
+        } elseif ($hotel['vote'] === 4) {
+            array_push($parkingHotels, $hotel);
+        }
+        var_dump($parkingHotels);
+    }
+    $hotels = $parkingHotels;
 } else {
     $hotels;
 }
@@ -79,10 +102,21 @@ if (isset($_GET["parking"])) {
             <input type="radio" name="noParking" id="noParking" class="form-check-input">
             <label for="noParking" checked="checked">NO</label>
             <input type="radio" name="parking" id="parking" class="form-check-input">
-            <label for="parking">SI</label>
-            <button>Filtra</button>
+            <label for="parking">SI</label><br>
+
+            <label for="vote">Che valutazione stai cercando?</label>
+            <select name="vote" id="vote">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br>
+            <button class="btn btn-secondary">Filtra</button>
         </form>
 
+        <hr>
         <table class="table">
             <thead>
                 <tr>
@@ -95,13 +129,13 @@ if (isset($_GET["parking"])) {
             </thead>
             <tbody>
                 <?php for ($i = 0; $i < count($hotels); $i++) { ?>
-                    <tr>
-                        <?php foreach ($hotels[$i] as $hotelData) { ?>
-                            <td>
-                                <?= $hotelData ?>
-                            </td>
-                        <?php } ?>
-                    </tr>
+                <tr>
+                    <?php foreach ($hotels[$i] as $hotelData) { ?>
+                    <td>
+                        <?= $hotelData ?>
+                    </td>
+                    <?php } ?>
+                </tr>
                 <?php } ?>
             </tbody>
         </table>

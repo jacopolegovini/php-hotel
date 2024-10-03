@@ -1,8 +1,17 @@
 <?php
 
-$parking = $_GET["parking"];
-
-echo $parking;
+// Valuta se l'utente ha interagito col radio button
+if (isset($_GET["parking"])) {
+    $filteredHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel['parking'] === true) {
+            array_push($filteredHotels, $hotel);
+        }
+    }
+    $hotels = $filteredHotels;
+} else {
+    $hotels;
+}
 
 ?>
 
