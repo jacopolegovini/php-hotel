@@ -40,41 +40,63 @@ $hotels = [
 
 // Valuta se l'utente ha interagito col radio button
 if (isset($_GET["parking"])) {
-    $filteredHotels = [];
+    $parkingHotels = [];
     foreach ($hotels as $hotel) {
         if ($hotel['parking'] === true) {
-            array_push($filteredHotels, $hotel);
+            array_push($parkingHotels, $hotel);
         }
     }
-    $hotels = $filteredHotels;
+    $hotels = $parkingHotels;
 } elseif (isset($_GET["noParking"])) {
     $hotels;
 } else {
     $hotels;
 }
 
-// Valuta se l'utente ha interagito con la selected
-if (isset($_GET["vote"])) {
-    $parkingHotels = [];
-
-    $vote = $_GET["vote"];
-
+if (isset($_GET["vote1"])) {
+    $voteHotels = [];
     foreach ($hotels as $hotel) {
         if ($hotel['vote'] === 1) {
-            array_push($parkingHotels, $hotel);
-        } elseif ($hotel['vote'] === 2) {
-            array_push($parkingHotels, $hotel);
-        } elseif ($hotel['vote'] === 3) {
-            array_push($parkingHotels, $hotel);
-        } elseif ($hotel['vote'] === 4) {
-            array_push($parkingHotels, $hotel);
+            array_push($voteHotels, $hotel);
         }
-        var_dump($parkingHotels);
     }
-    $hotels = $parkingHotels;
+    $hotels = $voteHotels;
+} elseif (isset($_GET["vote2"])) {
+    $voteHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel['vote'] === 2) {
+            array_push($voteHotels, $hotel);
+        }
+    }
+    $hotels = $voteHotels;
+} elseif (isset($_GET["vote3"])) {
+    $voteHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel['vote'] === 3) {
+            array_push($voteHotels, $hotel);
+        }
+    }
+    $hotels = $voteHotels;
+} elseif (isset($_GET["vote4"])) {
+    $voteHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel['vote'] === 4) {
+            array_push($voteHotels, $hotel);
+        }
+    }
+    $hotels = $voteHotels;
+} elseif (isset($_GET["vote5"])) {
+    $voteHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel['vote'] === 5) {
+            array_push($voteHotels, $hotel);
+        }
+    }
+    $hotels = $voteHotels;
 } else {
     $hotels;
 }
+
 
 ?>
 
@@ -105,13 +127,16 @@ if (isset($_GET["vote"])) {
             <label for="parking">SI</label><br>
 
             <label for="vote">Che valutazione stai cercando?</label>
-            <select name="vote" id="vote">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+            <input type="radio" name="vote1">
+            <label for="vote1">1</label>
+            <input type="radio" name="vote2">
+            <label for="vote2">2</label>
+            <input type="radio" name="vote3">
+            <label for="vote3">3</label>
+            <input type="radio" name="vote4">
+            <label for="vote4">4</label>
+            <input type="radio" name="vote5">
+            <label for="vote5">5</label>
             <br>
             <button class="btn btn-secondary">Filtra</button>
         </form>
@@ -129,13 +154,13 @@ if (isset($_GET["vote"])) {
             </thead>
             <tbody>
                 <?php for ($i = 0; $i < count($hotels); $i++) { ?>
-                <tr>
-                    <?php foreach ($hotels[$i] as $hotelData) { ?>
-                    <td>
-                        <?= $hotelData ?>
-                    </td>
-                    <?php } ?>
-                </tr>
+                    <tr>
+                        <?php foreach ($hotels[$i] as $hotelData) { ?>
+                            <td>
+                                <?= $hotelData ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
                 <?php } ?>
             </tbody>
         </table>
