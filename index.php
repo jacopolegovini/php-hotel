@@ -56,15 +56,15 @@ $hotels = [
     <main>
         <ul>
             <?php foreach ($hotels as $hotel) { ?>
-                <li>
-                    <?php foreach ($hotel as $dataHotel) { ?>
-                        <ul>
-                            <li>
-                                <?= $dataHotel; ?>
-                            </li>
-                        </ul>
-                    <?php } ?>
-                </li>
+            <li>
+                <?php foreach ($hotel as $dataHotel) { ?>
+                <ul>
+                    <li>
+                        <?= $dataHotel; ?>
+                    </li>
+                </ul>
+                <?php } ?>
+            </li>
             <?php } ?>
         </ul>
 
@@ -79,41 +79,15 @@ $hotels = [
                 </tr>
             </thead>
             <tbody>
+                <?php for ($i = 0; $i < count($hotels); $i++) { ?>
                 <tr>
-                    <?php foreach ($hotels[0] as $hotelData) { ?>
-                        <td>
-                            <?= $hotelData ?>
-                        </td>
+                    <?php foreach ($hotels[$i] as $hotelData) { ?>
+                    <td>
+                        <?= $hotelData ?>
+                    </td>
                     <?php } ?>
                 </tr>
-                <tr>
-                    <?php foreach ($hotels[1] as $hotelData) { ?>
-                        <td>
-                            <?= $hotelData ?>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <?php foreach ($hotels[2] as $hotelData) { ?>
-                        <td>
-                            <?= $hotelData ?>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <?php foreach ($hotels[3] as $hotelData) { ?>
-                        <td>
-                            <?= $hotelData ?>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <?php foreach ($hotels[4] as $hotelData) { ?>
-                        <td>
-                            <?= $hotelData ?>
-                        </td>
-                    <?php } ?>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </main>
