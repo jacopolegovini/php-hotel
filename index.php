@@ -46,6 +46,10 @@ $hotels = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
@@ -63,6 +67,55 @@ $hotels = [
                 </li>
             <?php } ?>
         </ul>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <?php foreach ($hotels[0] as $hotelData) { ?>
+                        <td>
+                            <?= $hotelData ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <?php foreach ($hotels[1] as $hotelData) { ?>
+                        <td>
+                            <?= $hotelData ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <?php foreach ($hotels[2] as $hotelData) { ?>
+                        <td>
+                            <?= $hotelData ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <?php foreach ($hotels[3] as $hotelData) { ?>
+                        <td>
+                            <?= $hotelData ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <?php foreach ($hotels[4] as $hotelData) { ?>
+                        <td>
+                            <?= $hotelData ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+            </tbody>
+        </table>
     </main>
 </body>
 
